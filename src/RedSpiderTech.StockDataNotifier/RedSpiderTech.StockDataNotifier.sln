@@ -9,9 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedSpiderTech.StockDataNoti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedSpiderTech.StockDataNotifier.Data", "RedSpiderTech.StockDataNotifier.MarketData\RedSpiderTech.StockDataNotifier.Data.csproj", "{5457C435-E09F-4A5B-BDB6-6319480449B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedSpiderTech.NotificationFilter", "RedSpiderTech.NotificationFilter\RedSpiderTech.NotificationFilter.csproj", "{A4E9C08C-FF92-4E5C-BD1B-3FD59B756AF1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedSpiderTech.StockDataNotifier.Common", "RedSpiderTech.StockDataNotifier.Common\RedSpiderTech.StockDataNotifier.Common.csproj", "{BF676763-7DFC-4064-8B90-6DE7560909BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedSpiderTech.StockDataNotifier.Common", "RedSpiderTech.StockDataNotifier.Common\RedSpiderTech.StockDataNotifier.Common.csproj", "{BF676763-7DFC-4064-8B90-6DE7560909BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +29,6 @@ Global
 		{5457C435-E09F-4A5B-BDB6-6319480449B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5457C435-E09F-4A5B-BDB6-6319480449B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5457C435-E09F-4A5B-BDB6-6319480449B4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A4E9C08C-FF92-4E5C-BD1B-3FD59B756AF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A4E9C08C-FF92-4E5C-BD1B-3FD59B756AF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A4E9C08C-FF92-4E5C-BD1B-3FD59B756AF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A4E9C08C-FF92-4E5C-BD1B-3FD59B756AF1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BF676763-7DFC-4064-8B90-6DE7560909BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BF676763-7DFC-4064-8B90-6DE7560909BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF676763-7DFC-4064-8B90-6DE7560909BB}.Release|Any CPU.ActiveCfg = Release|Any CPU

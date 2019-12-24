@@ -13,13 +13,13 @@ namespace RedSpiderTech.StockDataNotifier.Data.Reader.Implementation
         #region Private Data
 
         private readonly ILogger _logger;
-        private readonly IEnumerable<ITrackedData> _trackedDataCollection;
 
         #endregion
 
         #region Properties
 
-        public IEnumerable<string> Symbols => _trackedDataCollection.Select(x => x.Symbol);
+        public IEnumerable<string> Symbols => TrackedDataCollection.Select(x => x.Symbol);
+        public IEnumerable<ITrackedData> TrackedDataCollection { get; }
 
         #endregion
 
@@ -28,7 +28,7 @@ namespace RedSpiderTech.StockDataNotifier.Data.Reader.Implementation
         public InputFileReader(ILogger logger, ITrackedDataFactory trackedDataFactory, IXmlDeserialiser<StockAlerts> xmlDeserialiser)
         {
             _logger = logger;
-            _trackedDataCollection = xmlDeserialiser.GetDeserialised().Stock.Select(trackedDataFactory.GetTrackedData);
+            TrackedDataCollection = xmlDeserialiser.GetDeserialised().Stock.Select(trackedDataFactory.GetTrackedData);
 
             _logger.Information("InputFileReader: TrackedDataCollection initialised.");
             _logger.Information("InputFileReader: InputFileReader instantiated successfully.");
