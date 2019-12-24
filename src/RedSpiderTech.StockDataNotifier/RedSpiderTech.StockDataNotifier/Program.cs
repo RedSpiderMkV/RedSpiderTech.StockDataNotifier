@@ -1,9 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Autofac;
+using RedSpiderTech.StockDataNotifier.Common.Utilities;
 using RedSpiderTech.StockDataNotifier.Data.Factory.Implementation;
 using RedSpiderTech.StockDataNotifier.Data.Factory.Interface;
 using RedSpiderTech.StockDataNotifier.Data.Model.Interface;
+using RedSpiderTech.StockDataNotifier.Data.Model.XML;
+using RedSpiderTech.StockDataNotifier.Data.Reader.Implementation;
+using RedSpiderTech.StockDataNotifier.Data.Reader.Interface;
 using RedSpiderTech.StockDataNotifier.Host.Utilities;
 using RedSpiderTech.StockDataNotifier.SecurityDataRetrieval;
 using Serilog;
@@ -28,9 +32,8 @@ namespace RedSpiderTech.StockDataNotifier.Host
 
             ISecurityDataRetriever securityDataRetriever = _container.Resolve<ISecurityDataRetriever>();
             IMarketDataFactory marketDataFactory = _container.Resolve<IMarketDataFactory>();
-
-            string[] symbols = new string[] { "AAPL", "MCRO.L" };
-            IEnumerable<Security> securityDataCollection = securityDataRetriever.GetSecurityData(symbols);
+            IInputFileReader inputFileReader = _container.Resolve<IInputFileReader>();
+            IEnumerable<Security> securityDataCollection = securityDataRetriever.GetSecurityData(inputFileReader.Symbols);
             IEnumerable<IMarketData> marketDataCollection = securityDataCollection.Select(marketDataFactory.GetMarketData);
 
             _logger.Information("RedSpiderTech.StockDataNotifier - Stock Data Monitoring ended");
@@ -44,8 +47,11 @@ namespace RedSpiderTech.StockDataNotifier.Host
             builder.RegisterType<LogInitialiser>().As<ILogInitialiser>().SingleInstance();
             builder.Register(x => x.Resolve<ILogInitialiser>().GetLogger()).As<ILogger>().SingleInstance();
             builder.RegisterType<SecurityDataRetriever>().As<ISecurityDataRetriever>().SingleInstance();
+            builder.RegisterType<InputFileReader>().As<IInputFileReader>().SingleInstance();
             builder.RegisterType<AppConfigurationManager>().As<IAppConfigurationManager>();
             builder.RegisterType<MarketDataFactory>().As<IMarketDataFactory>();
+            builder.RegisterType<TrackedDataFactory>().As<ITrackedDataFactory>();
+            builder.Register(x => new XmlDeserialiser<StockAlerts>(x.Resolve<ILogger>(), x.Resolve<IAppConfigurationManager>())).As<IXmlDeserialiser<StockAlerts>>();
 
             _container = builder.Build();
         }

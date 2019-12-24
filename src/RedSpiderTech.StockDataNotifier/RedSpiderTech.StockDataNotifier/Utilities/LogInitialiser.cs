@@ -1,4 +1,5 @@
-﻿using Serilog;
+﻿using RedSpiderTech.StockDataNotifier.Common.Utilities;
+using Serilog;
 using Serilog.Events;
 
 namespace RedSpiderTech.StockDataNotifier.Host.Utilities

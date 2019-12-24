@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Serilog;
 using YahooFinanceApi;
@@ -20,7 +21,7 @@ namespace RedSpiderTech.StockDataNotifier.SecurityDataRetrieval
             _logger = logger;
         }
 
-        public IEnumerable<Security> GetSecurityData(string[] symbols)
+        public IEnumerable<Security> GetSecurityData(IEnumerable<string> symbols)
         {
             _logger.Information("SecurityDataRetriever: Retrieving security data for symbols:");
             foreach (string symbol in symbols)
@@ -28,7 +29,7 @@ namespace RedSpiderTech.StockDataNotifier.SecurityDataRetrieval
                 _logger.Information($"SecurityDataRetriever: {symbol}");
             }
 
-            Task<IReadOnlyDictionary<string, Security>> retrievalTask = Yahoo.Symbols(symbols)
+            Task<IReadOnlyDictionary<string, Security>> retrievalTask = Yahoo.Symbols(symbols.ToArray())
                 .Fields(Field.ShortName, Field.LongName, Field.RegularMarketTime, Field.MarketCap, Field.RegularMarketChange,
                     Field.RegularMarketPrice, Field.RegularMarketChangePercent, Field.RegularMarketVolume)
                 .QueryAsync();

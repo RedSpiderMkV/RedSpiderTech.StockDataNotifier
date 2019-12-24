@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stockAlerts>
+	<stock symbol="EVR.L" percentageChangeThreshold="1.0" />
+	<stock symbol="SSE.L" percentageChangeThreshold="1.0" />
+	<stock symbol="HL.L" percentageChangeThreshold="1.0" />
+	<stock symbol="GSK.L" percentageChangeThreshold="1.0" />
+	<stock symbol="MCRO.L" percentageChangeThreshold="1.0" />
+	<stock symbol="DBX" percentageChangeThreshold="1.0" />
+	<stock symbol="SSYS" percentageChangeThreshold="1.0" />
+</stockAlerts>
+

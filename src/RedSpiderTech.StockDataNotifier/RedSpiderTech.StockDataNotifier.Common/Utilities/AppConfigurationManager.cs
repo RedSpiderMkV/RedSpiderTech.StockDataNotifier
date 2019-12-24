@@ -1,14 +1,13 @@
 ﻿using System.Configuration;
 using System.IO;
 
-namespace RedSpiderTech.StockDataNotifier.Host.Utilities
+namespace RedSpiderTech.StockDataNotifier.Common.Utilities
 {
     public class AppConfigurationManager : IAppConfigurationManager
     {
         #region Properties
 
-        public string InputFile => ConfigurationManager.AppSettings["InputFile"];
-        public string OutputFile => ConfigurationManager.AppSettings["OutputFile"];
+        public string InputFile => ConfigurationManager.AppSettings["inputFile"];
         public string LogFile
         {
             get

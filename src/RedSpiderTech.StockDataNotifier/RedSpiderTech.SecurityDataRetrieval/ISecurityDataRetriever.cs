@@ -5,6 +5,6 @@ namespace RedSpiderTech.StockDataNotifier.SecurityDataRetrieval
 {
     public interface ISecurityDataRetriever
     {
-        IEnumerable<Security> GetSecurityData(string[] symbols);
+        IEnumerable<Security> GetSecurityData(IEnumerable<string> symbols);
     }
 }

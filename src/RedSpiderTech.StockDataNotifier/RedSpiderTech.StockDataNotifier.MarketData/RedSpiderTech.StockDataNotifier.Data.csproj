@@ -6,6 +6,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RedSpiderTech.SecurityDataRetrieval\RedSpiderTech.StockDataNotifier.SecurityDataRetrieval.csproj" />
+    <ProjectReference Include="..\RedSpiderTech.StockDataNotifier.Common\RedSpiderTech.StockDataNotifier.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Serilog" Version="2.9.0" />
   </ItemGroup>
 
 </Project>
