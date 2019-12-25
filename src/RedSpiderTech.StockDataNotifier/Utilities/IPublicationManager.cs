@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using RedSpiderTech.StockDataNotifier.Data.Model.Interface;
 
 namespace RedSpiderTech.StockDataNotifier.Host
 {
-    public interface IPublicationManager
+    public interface IPublicationManager : IDisposable
     {
-        void Publish(IEnumerable<IMarketData> marketDataCollection);
         bool Publish(IMarketData marketData);
     }
 }

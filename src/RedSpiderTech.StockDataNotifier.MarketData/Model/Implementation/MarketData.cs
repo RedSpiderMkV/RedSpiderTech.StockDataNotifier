@@ -3,6 +3,7 @@ using RedSpiderTech.StockDataNotifier.Data.Model.Interface;
 
 namespace RedSpiderTech.StockDataNotifier.Data.Model.Implementation
 {
+    [Serializable]
     public class MarketData : IMarketData
     {
         #region Properties

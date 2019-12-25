@@ -8,6 +8,7 @@ namespace RedSpiderTech.StockDataNotifier.Common.Utilities
         #region Properties
 
         public string InputFile => ConfigurationManager.AppSettings["inputFile"];
+        
         public string LogFile
         {
             get
@@ -19,6 +20,19 @@ namespace RedSpiderTech.StockDataNotifier.Common.Utilities
                 return logFile;
             }
         }
+
+        public string MessageQueueConnectionString 
+        { 
+            get
+            {
+                string port = ConfigurationManager.AppSettings["messageQueuePort"];
+                string hostname = ConfigurationManager.AppSettings["messageQueueHost"];
+
+                return $"tcp://{hostname}:{port}";
+            } 
+        }
+
+        public string MessageQueueTopic => ConfigurationManager.AppSettings["messageQueueTopic"];
 
         #endregion
     }

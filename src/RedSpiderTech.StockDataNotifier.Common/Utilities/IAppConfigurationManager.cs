@@ -4,5 +4,7 @@
     {
         string InputFile { get; }
         string LogFile { get; }
+        string MessageQueueConnectionString { get; }
+        string MessageQueueTopic { get; }
     }
 }

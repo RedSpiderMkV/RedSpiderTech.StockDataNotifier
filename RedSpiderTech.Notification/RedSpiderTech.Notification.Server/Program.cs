@@ -13,21 +13,21 @@ namespace RedSpiderTech.Notification.Server
             thread.Start();
 
             Thread thread2 = new Thread(Publish);
-            thread2.Start();
+            //thread2.Start();
         }
 
         private static void Subscribe()
         {
             using (var subscriber = new SubscriberSocket())
             {
-                subscriber.Connect("tcp://127.0.0.1:5556");
-                subscriber.Subscribe("B");
+                subscriber.Connect("tcp://127.0.0.1:55561");
+                subscriber.Subscribe("StockDataNotification");
 
                 while (true)
                 {
                     var topic = subscriber.ReceiveFrameString();
-                    var msg = subscriber.ReceiveFrameString();
-                    Console.WriteLine("From Publisher: {0} {1}", topic, msg);
+                    var dataFrame = subscriber.ReceiveFrameString();
+                    Console.WriteLine("From Publisher: {0} {1}", topic, dataFrame);
                 }
             }
         }

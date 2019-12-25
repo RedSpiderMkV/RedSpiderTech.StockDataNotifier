@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <stockAlerts>
-	<stock symbol="EVR.L" percentageChangeThreshold="-0.5" />
-	<stock symbol="SSE.L" percentageChangeThreshold="-0.5" />
-	<stock symbol="HL.L" percentageChangeThreshold="-0.5" />
-	<stock symbol="GSK.L" percentageChangeThreshold="-0.5" />
-	<stock symbol="MCRO.L" percentageChangeThreshold="-0.5" />
-	<stock symbol="DBX" percentageChangeThreshold="-0.5" />
-	<stock symbol="SSYS" percentageChangeThreshold="-0.5" />
+	<stock symbol="EVR.L" percentageChangeThreshold="0.0" />
+	<stock symbol="SSE.L" percentageChangeThreshold="0.0" />
+	<stock symbol="HL.L" percentageChangeThreshold="0.0" />
+	<stock symbol="GSK.L" percentageChangeThreshold="0.0" />
+	<stock symbol="MCRO.L" percentageChangeThreshold="0.0" />
+	<stock symbol="DBX" percentageChangeThreshold="0.0" />
+	<stock symbol="SSYS" percentageChangeThreshold="0.0" />
 </stockAlerts>
 

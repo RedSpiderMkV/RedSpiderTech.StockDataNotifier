@@ -43,7 +43,7 @@ namespace RedSpiderTech.StockDataNotifier.Host
             IEnumerable<IMarketData> marketDataForPublishing = trackedDataFilter.GetMarketDataForPublishing(marketDataCollection);
             IEnumerable<bool> publishSuccess = marketDataForPublishing.Select(publicationManager.Publish);
 
-            if(publishSuccess.Any(x => !x))
+            if (publishSuccess.Any(x => !x))
             {
                 _logger.Warning("Not all data was published successfully...");
             }
