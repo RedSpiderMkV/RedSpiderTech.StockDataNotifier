@@ -21,9 +21,10 @@ namespace RedSpiderTech.StockDataNotifier.Host
             _logger.Information("PublicationManager: Instantiation successful.");
         }
 
-        public void Publish(IMarketData marketData)
+        public bool Publish(IMarketData marketData)
         {
             // Publish
+            return false;
         }
 
         public void Publish(IEnumerable<IMarketData> marketDataCollection)
