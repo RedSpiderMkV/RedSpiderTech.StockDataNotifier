@@ -9,14 +9,14 @@ namespace RedSpiderTech.Notification.Server
     {
         static void Main(string[] args)
         {
-            Thread thread = new Thread(Subscribe);
+            Thread thread = new Thread(() => Subscribe("Subscriber2"));
             thread.Start();
 
-            Thread thread2 = new Thread(Publish);
-            //thread2.Start();
+            Thread thread2 = new Thread(() => Subscribe("Subscriber1"));
+            thread2.Start();
         }
 
-        private static void Subscribe()
+        private static void Subscribe(string subscriberName)
         {
             using (var subscriber = new SubscriberSocket())
             {
@@ -27,7 +27,7 @@ namespace RedSpiderTech.Notification.Server
                 {
                     var topic = subscriber.ReceiveFrameString();
                     var dataFrame = subscriber.ReceiveFrameString();
-                    Console.WriteLine("From Publisher: {0} {1}", topic, dataFrame);
+                    Console.WriteLine(subscriberName.ToUpper() + ": From Publisher: {0} {1}", topic, dataFrame);
                 }
             }
         }

@@ -19,6 +19,8 @@ namespace RedSpiderTech.StockDataNotifier.SecurityDataRetrieval
         public SecurityDataRetriever(ILogger logger)
         {
             _logger = logger;
+
+            _logger.Information("SecurityDataRetriever: Instantiation successful.");
         }
 
         public IEnumerable<Security> GetSecurityData(IEnumerable<string> symbols)
@@ -30,8 +32,14 @@ namespace RedSpiderTech.StockDataNotifier.SecurityDataRetrieval
             }
 
             Task<IReadOnlyDictionary<string, Security>> retrievalTask = Yahoo.Symbols(symbols.ToArray())
-                .Fields(Field.ShortName, Field.LongName, Field.RegularMarketTime, Field.MarketCap, Field.RegularMarketChange,
-                    Field.RegularMarketPrice, Field.RegularMarketChangePercent, Field.RegularMarketVolume)
+                .Fields(Field.ShortName,
+                        Field.LongName, 
+                        Field.RegularMarketTime, 
+                        Field.MarketCap, 
+                        Field.RegularMarketChange,
+                        Field.RegularMarketPrice, 
+                        Field.RegularMarketChangePercent, 
+                        Field.RegularMarketVolume)
                 .QueryAsync();
             retrievalTask.Wait();
 

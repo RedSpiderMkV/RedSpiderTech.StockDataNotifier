@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using YahooFinanceApi;
+using RedSpiderTech.StockDataNotifier.SecurityDataRetrieval.DTO;
 
 namespace RedSpiderTech.StockDataNotifier.SecurityDataRetrieval
 {
