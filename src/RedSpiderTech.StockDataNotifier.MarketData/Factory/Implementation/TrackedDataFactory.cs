@@ -26,7 +26,7 @@ namespace RedSpiderTech.StockDataNotifier.Data.Factory.Implementation
         public ITrackedData GetTrackedData(Stock stock)
         {
             _logger.Information($"TrackedDataFactory: Generating TrackedData for {stock.Symbol}");
-            return new TrackedData(stock.Symbol, float.Parse(stock.PercentageChangeThreshold));
+            return new TrackedData(stock.Symbol, float.Parse(stock.PercentageChangeThresholdUpper), float.Parse(stock.PercentageChangeThresholdLower));
         }
 
         #endregion

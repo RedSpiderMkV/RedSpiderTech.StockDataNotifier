@@ -7,7 +7,9 @@ namespace RedSpiderTech.StockDataNotifier.Data.Model.XML
     {
         [XmlAttribute(AttributeName = "symbol")]
         public string Symbol { get; set; }
-        [XmlAttribute(AttributeName = "percentageChangeThreshold")]
-        public string PercentageChangeThreshold { get; set; }
+        [XmlAttribute(AttributeName = "notificationChangePercentageRangeUpper")]
+        public string PercentageChangeThresholdUpper { get; set; }
+        [XmlAttribute(AttributeName = "notificationChangePercentageRangeLower")]
+        public string PercentageChangeThresholdLower { get; set; }
     }
 }

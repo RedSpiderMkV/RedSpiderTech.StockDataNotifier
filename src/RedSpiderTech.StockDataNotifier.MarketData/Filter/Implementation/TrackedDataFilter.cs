@@ -39,17 +39,8 @@ namespace RedSpiderTech.StockDataNotifier.Data.Filter.Implementation
         private bool ShouldPublish(IMarketData marketData)
         {
             ITrackedData trackedData = _inputFileReader.TrackedDataCollection.First(x => x.Symbol.Equals(marketData.Symbol));
-            bool shouldPublish = false;
-            if(trackedData.ChangePercentageThreshold > 0)
-            {
-                shouldPublish = marketData.CurrentPriceChangePercentage >= trackedData.ChangePercentageThreshold;
-            }
-            if(trackedData.ChangePercentageThreshold < 0)
-            {
-                shouldPublish = marketData.CurrentPriceChangePercentage <= trackedData.ChangePercentageThreshold;
-            }
+            bool shouldPublish = marketData.CurrentPriceChangePercentage >= trackedData.ChangePercentageUpperThreshold || marketData.CurrentPriceChangePercentage <= trackedData.ChangePercentageLowerThreshold;
 
-            shouldPublish = shouldPublish || trackedData.ChangePercentageThreshold == 0;
             if (shouldPublish)
             {
                 _logger.Information($"TrackedDataFilter: {trackedData.Symbol} has breached threshold and will be published.");

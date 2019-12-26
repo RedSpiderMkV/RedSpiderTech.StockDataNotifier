@@ -2,7 +2,8 @@
 {
     public interface ITrackedData
     {
-        float ChangePercentageThreshold { get; }
+        float ChangePercentageUpperThreshold { get; }
+        float ChangePercentageLowerThreshold { get; }
         string Symbol { get; }
     }
 }
