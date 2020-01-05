@@ -16,9 +16,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RedSpiderTech.SecurityDataRetrieval\RedSpiderTech.StockDataNotifier.SecurityDataRetrieval.csproj" />
     <ProjectReference Include="..\RedSpiderTech.StockDataNotifier.Common\RedSpiderTech.StockDataNotifier.Common.csproj" />
     <ProjectReference Include="..\RedSpiderTech.StockDataNotifier.MarketData\RedSpiderTech.StockDataNotifier.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="RedSpiderTech.Securities.DataRetriever">
+      <HintPath>..\..\Libs\RedSpiderTech.Securities.DataRetriever.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

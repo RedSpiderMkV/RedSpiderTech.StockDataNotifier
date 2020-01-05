@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Autofac;
+using RedSpiderTech.Securities.DataRetriever;
+using RedSpiderTech.Securities.DataRetriever.Core;
+using RedSpiderTech.Securities.DataRetriever.Model;
 using RedSpiderTech.StockDataNotifier.Common.Utilities;
 using RedSpiderTech.StockDataNotifier.Data.Factory.Implementation;
 using RedSpiderTech.StockDataNotifier.Data.Factory.Interface;
@@ -11,9 +14,7 @@ using RedSpiderTech.StockDataNotifier.Data.Model.XML;
 using RedSpiderTech.StockDataNotifier.Data.Reader.Implementation;
 using RedSpiderTech.StockDataNotifier.Data.Reader.Interface;
 using RedSpiderTech.StockDataNotifier.Host.Utilities;
-using RedSpiderTech.StockDataNotifier.SecurityDataRetrieval;
 using Serilog;
-using YahooFinanceApi;
 
 namespace RedSpiderTech.StockDataNotifier.Host
 {
@@ -38,7 +39,7 @@ namespace RedSpiderTech.StockDataNotifier.Host
             ITrackedDataFilter trackedDataFilter = _container.Resolve<ITrackedDataFilter>();
             IPublicationManager publicationManager = _container.Resolve<IPublicationManager>();
 
-            IEnumerable<Security> securityDataCollection = securityDataRetriever.GetSecurityData(inputFileReader.Symbols);
+            IEnumerable<ISecurityData> securityDataCollection = securityDataRetriever.GetSecurityData(inputFileReader.Symbols);
             IEnumerable<IMarketData> marketDataCollection = securityDataCollection.Select(marketDataFactory.GetMarketData);
             IEnumerable<IMarketData> marketDataForPublishing = trackedDataFilter.GetMarketDataForPublishing(marketDataCollection);
             IEnumerable<bool> publishSuccess = marketDataForPublishing.Select(publicationManager.Publish);
@@ -58,8 +59,9 @@ namespace RedSpiderTech.StockDataNotifier.Host
 
             builder.RegisterType<LogInitialiser>().As<ILogInitialiser>().SingleInstance();
             builder.Register(x => x.Resolve<ILogInitialiser>().GetLogger()).As<ILogger>().SingleInstance();
-            builder.RegisterType<SecurityDataRetriever>().As<ISecurityDataRetriever>().SingleInstance();
+            builder.RegisterType<SecurityDataRetrieverManager>().As<ISecurityDataRetrieverManager>().SingleInstance();
             builder.RegisterType<InputFileReader>().As<IInputFileReader>().SingleInstance();
+            builder.Register(x => x.Resolve<ISecurityDataRetrieverManager>().GetSecurityDataRetriever()).As<ISecurityDataRetriever>();
             builder.RegisterType<AppConfigurationManager>().As<IAppConfigurationManager>();
             builder.RegisterType<MarketDataFactory>().As<IMarketDataFactory>();
             builder.RegisterType<TrackedDataFactory>().As<ITrackedDataFactory>();

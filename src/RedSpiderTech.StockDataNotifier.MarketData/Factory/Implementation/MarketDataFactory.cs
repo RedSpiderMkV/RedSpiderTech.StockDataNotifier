@@ -1,8 +1,8 @@
-﻿using RedSpiderTech.StockDataNotifier.Data.Factory.Interface;
+﻿using RedSpiderTech.Securities.DataRetriever.Model;
+using RedSpiderTech.StockDataNotifier.Data.Factory.Interface;
 using RedSpiderTech.StockDataNotifier.Data.Model.Implementation;
 using RedSpiderTech.StockDataNotifier.Data.Model.Interface;
 using Serilog;
-using YahooFinanceApi;
 
 namespace RedSpiderTech.StockDataNotifier.Data.Factory.Implementation
 {
@@ -23,20 +23,20 @@ namespace RedSpiderTech.StockDataNotifier.Data.Factory.Implementation
             _logger.Information("MarketDataFactory: Instantiation successful.");
         }
 
-        public IMarketData GetMarketData(Security securityData)
+        public IMarketData GetMarketData(ISecurityData securityData)
         {
             _logger.Information($"MarketDataFactory: Generating market data for {securityData.Symbol}");
 
             var marketData = new MarketData(securityData.Symbol,
-                                            securityData.RegularMarketTime,
+                                            securityData.TimeStamp,
                                             securityData.LongName,
                                             securityData.ShortName,
-                                            securityData.Exchange,
-                                            securityData.MarketCap,
-                                            securityData.RegularMarketPrice,
-                                            securityData.RegularMarketVolume,
-                                            securityData.RegularMarketChange,
-                                            securityData.RegularMarketChangePercent);
+                                            securityData.ExchangeName,
+                                            securityData.MarketCapital,
+                                            securityData.CurrentPrice,
+                                            securityData.CurrentVolume,
+                                            securityData.CurrentPriceChange,
+                                            securityData.CurrentPriceChangePercentage);
 
             return marketData;
         }

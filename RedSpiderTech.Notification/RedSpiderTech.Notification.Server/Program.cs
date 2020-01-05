@@ -10,7 +10,7 @@ namespace RedSpiderTech.Notification.Server
         static void Main(string[] args)
         {
             Thread thread = new Thread(() => Subscribe("Subscriber2"));
-            thread.Start();
+            //thread.Start();
 
             Thread thread2 = new Thread(() => Subscribe("Subscriber1"));
             thread2.Start();
@@ -27,7 +27,7 @@ namespace RedSpiderTech.Notification.Server
                 {
                     var topic = subscriber.ReceiveFrameString();
                     var dataFrame = subscriber.ReceiveFrameString();
-                    Console.WriteLine(subscriberName.ToUpper() + ": From Publisher: {0} {1}", topic, dataFrame);
+                    Console.WriteLine(subscriberName.ToUpper() + ": From PublisherQueue: {0} {1}", topic, dataFrame);
                 }
             }
         }

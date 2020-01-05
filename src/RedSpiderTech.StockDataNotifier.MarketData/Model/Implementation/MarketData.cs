@@ -24,7 +24,7 @@ namespace RedSpiderTech.StockDataNotifier.Data.Model.Implementation
         #region Public Methods
 
         public MarketData(string symbol,
-                          long timestamp,
+                          DateTime timestamp,
                           string longName,
                           string shortName,
                           string exchangeName,
@@ -35,12 +35,11 @@ namespace RedSpiderTech.StockDataNotifier.Data.Model.Implementation
                           double currentPriceChangePercentage)
         {
             Symbol = symbol;
-            TimeStamp = DateTimeOffset.FromUnixTimeSeconds(timestamp).UtcDateTime;
+            TimeStamp = timestamp;
             LongName = longName;
             ShortName = shortName;
             ExchangeName = exchangeName;
-
-            MarketCapital = marketCapital / (1 * Math.Pow(10, 9));
+            MarketCapital = marketCapital;
             CurrentPrice = currentPrice;
             CurrentVolume = currentVolume;
             CurrentPriceChange = currentPriceChange;

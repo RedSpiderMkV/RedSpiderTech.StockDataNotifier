@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedSpiderTech.StockDataNotifier.Host", "RedSpiderTech.StockDataNotifier\RedSpiderTech.StockDataNotifier.Host.csproj", "{E16B3C8E-C9D8-4258-9A80-E7A5C95553C4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedSpiderTech.StockDataNotifier.SecurityDataRetrieval", "RedSpiderTech.SecurityDataRetrieval\RedSpiderTech.StockDataNotifier.SecurityDataRetrieval.csproj", "{1502279A-CDC2-40FE-B1EC-FFB5B3833078}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedSpiderTech.StockDataNotifier.Data", "RedSpiderTech.StockDataNotifier.MarketData\RedSpiderTech.StockDataNotifier.Data.csproj", "{5457C435-E09F-4A5B-BDB6-6319480449B4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedSpiderTech.StockDataNotifier.Common", "RedSpiderTech.StockDataNotifier.Common\RedSpiderTech.StockDataNotifier.Common.csproj", "{BF676763-7DFC-4064-8B90-6DE7560909BB}"
@@ -21,10 +19,6 @@ Global
 		{E16B3C8E-C9D8-4258-9A80-E7A5C95553C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E16B3C8E-C9D8-4258-9A80-E7A5C95553C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E16B3C8E-C9D8-4258-9A80-E7A5C95553C4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1502279A-CDC2-40FE-B1EC-FFB5B3833078}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1502279A-CDC2-40FE-B1EC-FFB5B3833078}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1502279A-CDC2-40FE-B1EC-FFB5B3833078}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1502279A-CDC2-40FE-B1EC-FFB5B3833078}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5457C435-E09F-4A5B-BDB6-6319480449B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5457C435-E09F-4A5B-BDB6-6319480449B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5457C435-E09F-4A5B-BDB6-6319480449B4}.Release|Any CPU.ActiveCfg = Release|Any CPU

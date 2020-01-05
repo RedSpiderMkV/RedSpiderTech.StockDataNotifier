@@ -1,10 +1,10 @@
-﻿using RedSpiderTech.StockDataNotifier.Data.Model.Interface;
-using YahooFinanceApi;
+﻿using RedSpiderTech.Securities.DataRetriever.Model;
+using RedSpiderTech.StockDataNotifier.Data.Model.Interface;
 
 namespace RedSpiderTech.StockDataNotifier.Data.Factory.Interface
 {
     public interface IMarketDataFactory
     {
-        IMarketData GetMarketData(Security securityData);
+        IMarketData GetMarketData(ISecurityData securityData);
     }
 }
